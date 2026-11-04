@@ -1,0 +1,12 @@
+.git/
+.next/
+.npm-cache/
+.vercel-auth/
+.vscode/
+node_modules/
+tmp/
+test-results/
+playwright-report/
+*.tsbuildinfo
+.env*
+/*.pdf

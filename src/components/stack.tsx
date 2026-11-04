@@ -1,0 +1,9 @@
+import {Code2,Server,Database,Workflow} from 'lucide-react';
+import {content,primaryStack,stack,type Locale} from '@/data/content';
+import {Reveal,Spotlight} from './interactions';
+import {TechIcon} from './tech-icon';
+const icons=[Code2,Server,Database,Workflow];
+const roles={en:['Type-safe foundations','The language of the web','Component-driven interfaces','Full-stack React applications','Server-side JavaScript','Structured backend services','Relational data & reporting','Document-oriented data'],pt:['Bases com tipagem segura','A linguagem da web','Interfaces em componentes','Aplicações React full stack','JavaScript no servidor','Serviços backend estruturados','Dados relacionais e relatórios','Dados orientados a documentos']};
+export function TechStack({locale}:{locale:Locale}){
+ const c=content[locale];return <><div className="stack-label"><span className="eyebrow">{locale==='en'?'THE CORE STACK':'STACK PRINCIPAL'}</span><span className="mono">01 / 08</span></div><div className="primary-tech-grid">{primaryStack.map((name,i)=><Reveal key={name} delay={(i%4)*0.07}><Spotlight className="primary-tech-card"><div className="tech-card-top"><TechIcon name={name}/><span className="mono">0{i+1}</span></div><h3>{name}</h3><p>{roles[locale][i]}</p></Spotlight></Reveal>)}</div><div className="stack-label supporting-stack-label"><span className="eyebrow">{locale==='en'?'ALSO IN MY TOOLKIT':'TAMBÉM NO MEU DIA A DIA'}</span></div><div className="stack-grid enhanced-stack">{stack.map((group,i)=>{const Icon=icons[i];return <Reveal className="stack-group" key={i} delay={i*0.06}><div className="stack-group-title"><Icon size={19}/><h3>{c.stackNames[i]}</h3></div><ul>{group.filter(name=>!primaryStack.includes(name)).map(name=><li className="secondary-tech-card" key={name}><TechIcon name={name}/><span>{c.toolsNames[name]||name}</span></li>)}</ul></Reveal>;})}</div></>;
+}

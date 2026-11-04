@@ -1,0 +1,4 @@
+import {ImageResponse} from 'next/og';
+export const size={width:1200,height:630};
+export const contentType='image/png';
+export default async function Image({params}:{params:Promise<{locale:string}>}){const {locale}=await params;return new ImageResponse(<div style={{width:'100%',height:'100%',display:'flex',flexDirection:'column',justifyContent:'space-between',padding:80,background:'#09090b',color:'#fafafa',fontFamily:'sans-serif'}}><div style={{display:'flex',fontSize:32,color:'#c4b5fd'}}>AC. / Angelo Costa</div><div style={{display:'flex',flexDirection:'column',fontSize:76,letterSpacing:-3}}><span>{locale==='pt'?'Problemas complexos.':'Complex problems.'}</span><span style={{color:'#a78bfa'}}>{locale==='pt'?'Produtos úteis.':'Useful products.'}</span></div><div style={{display:'flex',fontSize:25,color:'#a1a1aa'}}>{locale==='pt'?'Engenheiro de Software Full Stack · Fortaleza, Brasil':'Full-Stack Software Engineer · Fortaleza, Brazil'}</div></div>,size);}
